@@ -15,9 +15,9 @@ type Options struct {
 	UserInfo   string `json:"user_info"`
 }
 type Resp struct {
-	Solution  any    `json:"solution"`
-	SolveTime string `json:"solveTime"`
-	Success   bool   `json:"success"`
+	Solution  *solver.V4PuzzleCaptchaResponse `json:"solution"`
+	SolveTime string                          `json:"solveTime"`
+	Success   bool                            `json:"success"`
 }
 
 func V4PuzzleSolveHandler(o *Options) (*Resp, error) {
