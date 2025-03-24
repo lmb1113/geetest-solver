@@ -18,13 +18,14 @@ type GeetestSolverConfig struct {
 	UserAgent  string
 	Proxy      string
 	httpClient *http.Client
+	UserInfo   string
 }
 
 type V4PuzzleSolution struct {
 	Solution *V4PuzzleCaptchaResponse
 }
 
-func NewGeetestSolver(websiteUrl string, captchaId string, userAgent string, proxy string) (GeetestSolver, error) {
+func NewGeetestSolver(websiteUrl string, captchaId string, userAgent string, proxy string, userInfo string) (GeetestSolver, error) {
 	httpClient := &http.Client{}
 
 	if proxy != "" {
@@ -45,6 +46,7 @@ func NewGeetestSolver(websiteUrl string, captchaId string, userAgent string, pro
 		UserAgent:  userAgent,
 		Proxy:      proxy,
 		httpClient: httpClient,
+		UserInfo:   userInfo,
 	}, nil
 }
 

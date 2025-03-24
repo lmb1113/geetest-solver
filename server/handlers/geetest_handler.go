@@ -14,6 +14,7 @@ func V4PuzzleSolveHandler(ctx echo.Context) error {
 		CaptchaId  string `json:"captchaId"`
 		UserAgent  string `json:"userAgent"`
 		Proxy      string `json:"proxy"`
+		UserInfo   string `json:"user_info"`
 	}
 
 	reqBody := new(body)
@@ -37,7 +38,7 @@ func V4PuzzleSolveHandler(ctx echo.Context) error {
 		})
 	}
 
-	captchaSolver, err := solver.NewGeetestSolver(websiteUrl, captchaId, userAgent, proxy)
+	captchaSolver, err := solver.NewGeetestSolver(websiteUrl, captchaId, userAgent, proxy, reqBody.UserInfo)
 
 	if err != nil {
 		return ctx.JSON(http.StatusInternalServerError, map[string]interface{}{

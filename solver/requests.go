@@ -78,9 +78,10 @@ type V4PuzzleCaptchaResponse struct {
 func (c *GeetestSolverConfig) getV4PuzzleCaptchaInfo() (*V4PuzzleCaptchaInfo, error) {
 	currentTimestamp := time.Now().UnixMilli()
 
-	reqUrl := fmt.Sprintf("https://gcaptcha4.geetest.com/load?callback=geetest_%d&captcha_id=%s&client_type=web&pt=1&lang=eng",
+	reqUrl := fmt.Sprintf("https://gcaptcha4.geetest.com/load?callback=geetest_%d&captcha_id=%s&client_type=web&pt=1&lang=zho&user_info=%s",
 		currentTimestamp,
 		c.CaptchaId,
+		c.UserInfo,
 	)
 
 	req, err := http.NewRequest(http.MethodGet, reqUrl, nil)
@@ -102,8 +103,8 @@ func (c *GeetestSolverConfig) getV4PuzzleCaptchaInfo() (*V4PuzzleCaptchaInfo, er
 		"sec-fetch-dest":           {"script"},
 		"sec-fetch-storage-access": {"active"},
 		"referer":                  {c.WebsiteUrl},
-		"accept-encoding":          {"gzip, deflate, br, zstd"},
-		"accept-language":          {"en-US,en;q=0.9"},
+		//"accept-encoding":          {"gzip, deflate, br, zstd"},
+		"accept-language": {"en-US,en;q=0.9"},
 	}
 
 	resp, err := c.httpClient.Do(req)
@@ -184,8 +185,8 @@ func (c *GeetestSolverConfig) verifyV4PuzzleCaptchaInfo(captchaInfo *V4PuzzleCap
 		"sec-fetch-dest":           {"script"},
 		"sec-fetch-storage-access": {"active"},
 		"referer":                  {c.WebsiteUrl},
-		"accept-encoding":          {"gzip, deflate, br, zstd"},
-		"accept-language":          {"en-US,en;q=0.9"},
+		//"accept-encoding":          {"gzip, deflate, br, zstd"},
+		"accept-language": {"en-US,en;q=0.9"},
 	}
 
 	resp, err := c.httpClient.Do(req)
