@@ -3,7 +3,7 @@ package geetest_solver
 import (
 	"errors"
 	"fmt"
-	"github.com/brianxor/geetest-solver/solver"
+	"github.com/lmb1113/geetest-solver/solver"
 	"time"
 )
 

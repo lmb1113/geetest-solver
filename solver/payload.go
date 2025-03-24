@@ -4,9 +4,9 @@ import (
 	"crypto/rsa"
 	"encoding/base64"
 	"encoding/hex"
-	"github.com/brianxor/geetest-solver/detection"
-	"github.com/brianxor/geetest-solver/internal/crypto"
-	"github.com/brianxor/geetest-solver/internal/utils"
+	"github.com/lmb1113/geetest-solver/detection"
+	"github.com/lmb1113/geetest-solver/internal/crypto"
+	"github.com/lmb1113/geetest-solver/internal/utils"
 	"math/big"
 )
 

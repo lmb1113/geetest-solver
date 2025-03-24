@@ -6,7 +6,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"github.com/brianxor/geetest-solver/internal/crypto"
+	"github.com/lmb1113/geetest-solver/internal/crypto"
 )
 
 var hashFunctions = map[string]func(string) string{
